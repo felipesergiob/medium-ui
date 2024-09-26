@@ -1,0 +1,56 @@
+<div class="doca">    
+    <header class="doca-mb-80 doca-flex doca-justify-between doca-items-center ">
+		<div class="doca-flex doca-items-center ">
+			<img src="assets/images/amigo.png" alt="Logo Amigo"   style="width: 150px; margin-left: 20px;">
+			<div class="doca-form__field" style="margin-left: 20px;">
+			  <div class="doca-form-control__icon-container doca-form-control__icon-container--left">
+				<i class="doca-icon doca-icon__search" style="font-size: large;"></i>
+				<input
+				  class="doca-form-control"
+				  style="height: 40px; width: 200px; font-size: large; margin-left: 3px;"
+				  placeholder="Search"
+				/>
+			  </div>
+			</div>
+		</div>
+		<div>
+			<button class="doca-button doca-button--large doca-button--primary doca-text--large" ng-click="createPost()">
+				Write
+			</button>
+			<i class="doca-icon doca-icon__bell doca-icon--extra-large"style="font-size: 30px; width: 50px;" ></i>			
+			<i class="doca-icon doca-icon__user doca-icon--extra-large "style="font-size: 30px; margin-right: 20px;" ></i>			
+		</div>
+	</header>
+
+	<hr class="doca-separator" />
+	
+	<div style="width: 35%; margin-top: 70px; margin-left: auto; margin-right: auto; ">
+		<div class="doca-flex">
+			<h2 style="text-align: center; margin-right: 15px; font-size: large">For you</h2>
+			<h2 style="text-align: center; font-size: large;">Following</h2>
+		</div>
+		<hr class="doca-separator"  />
+	</div>
+
+	<div class="doca" style="display: flex; flex-direction: column; align-items: center;">
+
+		<div ng-if="posts.length > 0">
+		  <div class="card mb-3" ng-repeat="post in posts">
+			<div class="card-body" style="width: 400px; height: 70px;">
+			  <h5 class="card-title" style="font-size: x-large; font-weight: bold;">{{ truncate(post.title, 50) }}</h5>
+			  <p class="card-text" style="font-size: medium;">{{ truncate(post.content, 150) }}</p>
+			</div>
+		  </div>
+		</div>
+		
+		<div ng-if="posts.length === 0">
+		  <p>Não há posts para exibir.</p>
+		</div>
+		
+		<div ng-if="loading">
+		  <p>Carregando posts...</p>
+		</div>
+	  </div>
+
+	</div>
+  
