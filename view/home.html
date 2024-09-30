@@ -14,7 +14,7 @@
 	  </div>
 	  <div>       
 		<button
-		  class="doca-button doca-button--large doca-button--tertiary">
+		  class="doca-button doca-button--large doca-button--tertiary" ng-click="createPost()">
 		  <i class="doca-icon doca-icon__pen-to-square doca-icon--extra-large" ></i>
 		  <p class="doca-text--extra-large">Write</p>
 		</button>       
@@ -80,7 +80,7 @@
 									<button
 										class="doca-button doca-button--large doca-button--tertiary">
 										<i class="doca-icon doca-icon__hands doca-icon--large"></i>
-										<p class="doca-text--large">99K</p>
+										<p class="doca-text--large">{{ post.total_likes }}</p>
 									</button>  		
 									<button
 										class="doca-button doca-button--large doca-button--tertiary">

@@ -1,13 +1,13 @@
-myApp.controller("homeController", function ($scope, PostService) {
+myApp.controller("homeController", function ($scope, PostService, $modal) {
   $scope.posts = [];  
   $scope.loading = false;
   $scope.currentPage = 1;  
 
   const listPosts = (page) => {
       $scope.loading = true;
-      PostService.getPosts(page).then((response) => {       
+      PostService.list(page).then((response) => {               
           if (response.data) {
-              $scope.posts = response.data.map(post => ({
+              $scope.posts = response.data.data.posts.map(post => ({
                   ...post,
                   formattedDate: new Date(post.created_at).toLocaleDateString('en-US', {
                       month: 'short',
@@ -31,10 +31,14 @@ myApp.controller("homeController", function ($scope, PostService) {
   };
 
 
-  $scope.createPost = () => {
-      alert('Função para criar um novo post!');
+  $scope.createPost = function() {
+    $modal.open({
+      templateUrl: 'view/create-post-modal.html',
+      controller: 'createPostModalController',
+      backdrop: 'static',
+      keyboard: false,
+    });
   };
-
 
   listPosts($scope.currentPage);
 });

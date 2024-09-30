@@ -14,8 +14,7 @@ myApp.config(function ($stateProvider, $httpProvider, $urlRouterProvider) {
     });
 });
 
-// Função isAuthorized comentada para uso futuro
-/*
+
 const isAuthorized = ($state, $rootScope) => {
   const isLogged = localStorage.getItem("token");
 
@@ -26,4 +25,4 @@ const isAuthorized = ($state, $rootScope) => {
 
   $rootScope.isLogged = true;
 };
-*/
+
