@@ -1,27 +1,40 @@
 myApp.controller("homeController", function ($scope, PostService) {
-    $scope.posts = [];  
-    $scope.loading = false;
-  
-    const listPosts = () => {
+  $scope.posts = [];  
+  $scope.loading = false;
+  $scope.currentPage = 1;  
+
+  const listPosts = (page) => {
       $scope.loading = true;
-      PostService.getPosts().then((response) => {
-        $scope.posts = response.data.posts; 
+      PostService.getPosts(page).then((response) => {       
+          if (response.data) {
+              $scope.posts = response.data.map(post => ({
+                  ...post,
+                  formattedDate: new Date(post.created_at).toLocaleDateString('en-US', {
+                      month: 'short',
+                      day: 'numeric',
+                      year: 'numeric'
+                  })
+              }));
+          } else {
+              console.error('Resposta da API inválida');
+          }
       }).catch((error) => {
-        console.error('Erro ao carregar posts:', error);
+          console.error('Erro ao carregar posts:', error);
       }).finally(() => {
-        $scope.loading = false;
-        $scope.$applyAsync();
+          $scope.loading = false;
+          $scope.$applyAsync();
       });
-    };
-  
-    $scope.truncate = (text, length) => {
+  };
+
+  $scope.truncate = (text, length) => {
       return text.length > length ? text.substring(0, length) + '...' : text;
-    };
-  
-    $scope.createPost = () => {
+  };
+
+
+  $scope.createPost = () => {
       alert('Função para criar um novo post!');
-    };
-  
-    listPosts();
-  });
-  
+  };
+
+
+  listPosts($scope.currentPage);
+});

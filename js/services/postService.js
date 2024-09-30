@@ -1,14 +1,19 @@
-myApp.service('PostService', function ($q) {
-    this.getPosts = () => {
+myApp.service('PostService', function ($http, $q) {
+  this.getPosts = (page) => {
       const deferred = $q.defer();
-  
-      const posts = [
-        { id: 1, title: 'Primeiro Post', content: 'Conteúdo do primeiro post...' },
-        { id: 2, title: 'Segundo Post', content: 'Conteúdo do segundo post...' },
-        { id: 3, title: 'Terceiro Post', content: 'Conteúdo do terceiro post...' }];
-  
-      deferred.resolve({ data: { posts: posts } });
+
+      $http.get(`${baseUrl}posts/list?page=${page}`)
+          .then((response) => {
+              if (response.data && response.data.data && response.data.data.posts) {
+                deferred.resolve({ data: response.data.data.posts });                 
+              } else {
+                deferred.reject('Resposta da API inválida');
+              }
+          })
+          .catch((error) => {
+              deferred.reject(error);
+          });
+
       return deferred.promise;
-    };
-  });
-  
+  };
+});
