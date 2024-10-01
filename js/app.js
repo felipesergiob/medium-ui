@@ -1,8 +1,7 @@
 const myApp = angular.module("mediumApp", ["ui.router", "ui.bootstrap"]);
 const baseUrl = "http://localhost:3000/";
 
-myApp.config(function ($stateProvider, $httpProvider, $urlRouterProvider) {
-  // $httpProvider.interceptors.push("BearerAuthInterceptor");
+myApp.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
 
   $stateProvider
@@ -11,12 +10,12 @@ myApp.config(function ($stateProvider, $httpProvider, $urlRouterProvider) {
       url: "/",
       templateUrl: "view/home.html",
       controller: "homeController",
+      onEnter: isAuthorized,
     });
 });
 
-
 const isAuthorized = ($state, $rootScope) => {
-  const isLogged = localStorage.getItem("token");
+  const isLogged = localStorage.getItem("token");  
 
   if (!isLogged) {
     $state.go("home");

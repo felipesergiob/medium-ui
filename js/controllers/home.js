@@ -1,4 +1,4 @@
-myApp.controller("homeController", function ($scope, PostService, $modal) {
+myApp.controller("homeController", function ($scope, PostService, $modal, $rootScope) {
   $scope.posts = [];  
   $scope.loading = false;
   $scope.currentPage = 1;  
@@ -27,17 +27,29 @@ myApp.controller("homeController", function ($scope, PostService, $modal) {
   };
 
   $scope.truncate = (text, length) => {
-      return text.length > length ? text.substring(0, length) + '...' : text;
+        return text.length > length ? text.substring(0, length) + '...' : text;
+  };
+
+  $scope.openLoginRegisterModal = function () {
+    $modal.open({
+      templateUrl: 'view/login-register-modal.html',
+      controller: 'loginRegisterModalController'
+    });
   };
 
 
   $scope.createPost = function() {
-    $modal.open({
-      templateUrl: 'view/create-post-modal.html',
-      controller: 'createPostModalController',
-      backdrop: 'static',
-      keyboard: false,
-    });
+    
+    if ($rootScope.isLogged) {
+      $modal.open({
+        templateUrl: 'view/create-post-modal.html',
+        controller: 'createPostModalController',
+        backdrop: 'static',
+        keyboard: false,
+      });
+    } else {      
+      $scope.openLoginRegisterModal();
+    }
   };
 
   listPosts($scope.currentPage);

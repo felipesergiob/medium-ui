@@ -1,0 +1,44 @@
+<form ng-submit="register()">
+    <div class="form-group">
+        <label class="doca-form__label">Nome</label>
+        <input
+            class="doca-form-control"
+            ng-model="user.name"
+            required
+        />
+    </div>
+    <div class="form-group">
+        <label class="doca-form__label">Usuário</label>
+        <input
+            class="doca-form-control"
+            ng-model="user.email"
+            required
+        />
+    </div>
+    <div class="form-group">
+        <label class="doca-form__label">Senha</label>
+        <input
+            type="password"
+            class="doca-form-control"
+            ng-model="user.password"
+            required
+        />
+    </div>
+    <div class="doca-flex doca-justify-between">
+        <div ng-click="toggleForm()">
+            <a class="doca-link doca-cursor-pointer">Já tem uma conta? Faça login.</a>
+        </div>        
+        <div>
+            <button
+                class="doca-button doca-button--secondary"
+                type="button"
+                ng-click="cancel()"
+            >
+                Cancelar
+            </button>
+            <button class="doca-button doca-button--primary" type="submit">
+                Cadastrar
+            </button>
+        </div>
+    </div>
+</form>

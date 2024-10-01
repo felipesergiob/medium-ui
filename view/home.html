@@ -23,7 +23,7 @@
 		  <i class="doca-icon doca-icon__bell doca-icon--extra-large" ></i>
 		</button>       
 		<button
-		  class="doca-button doca-button--large doca-button--tertiary">
+		  class="doca-button doca-button--large doca-button--tertiary"  ng-click="openLoginRegisterModal()">
 		  <i class="doca-icon doca-icon__circle-user doca-icon--extra-large" ></i>
 		</button>   
 	  </div>
@@ -63,8 +63,8 @@
 						{{ post.user.name }} 
 					</p>
 				</div>
-				<div class="doca-card doca-card--borderless doca-flex doca-mt-4 doca-justify-between doca-h-auto">
-					<div class="doca-card__content doca-pl-0 doca-items-center" style="width: 400px;">
+				<div class="doca-card doca-card--borderless doca-flex doca-mt-4 doca-justify-between doca-items-start doca-h-auto">
+					<div class="doca-card__content doca-pl-0 doca-items-center doca-pt-0 doca-h-64" style="width: 400px;">
 						<p class="doca-card__title doca-text--normal doca-text--extra-large doca-mb-8" style="font-size: 22px; line-height:30px;">
 							{{ truncate(post.title, 150) }}
 						</p>

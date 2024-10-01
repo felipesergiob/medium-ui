@@ -1,0 +1,9 @@
+<div class="doca">
+  <div class="modal-header">
+    <h3 class="doca-text doca-text--large">{{ isLogin ? 'Login' : 'Cadastro' }}</h3>
+  </div>
+  <div class="modal-body" id="modal-body">
+    <login-form ng-if="isLogin" toggle-form="toggleForm()"></login-form>
+    <register-form ng-if="!isLogin" toggle-form="toggleForm()"></register-form>
+  </div>
+</div>
