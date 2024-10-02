@@ -49,5 +49,9 @@ myApp.controller("homeController", function ($scope, PostService, $modal, $rootS
     }
   };
 
+  $rootScope.$on('postCreated', function() {
+    listPosts($scope.currentPage);
+  });
+
   listPosts($scope.currentPage);
 });
