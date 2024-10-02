@@ -37,10 +37,8 @@ myApp.controller("homeController", function ($scope, PostService, $modal, $rootS
     });
   };
 
-
   $scope.createPost = function() {
-    
-    if ($rootScope.isLogged) {
+    if ($rootScope.isLoggedIn) {
       $modal.open({
         templateUrl: 'view/create-post-modal.html',
         controller: 'createPostModalController',

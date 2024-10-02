@@ -9,7 +9,7 @@ myApp.controller('loginRegisterModalController', function ($scope, $modalInstanc
         $modalInstance.dismiss("cancel");
     };
 
-    $scope.closeModal = () => {
+    $scope.closeModal = () => {        
         $modalInstance.close();
     };
 });

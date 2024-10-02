@@ -23,13 +23,19 @@
 		  <i class="doca-icon doca-icon__bell doca-icon--extra-large" ></i>
 		</button>       
 		<button
-		  class="doca-button doca-button--large doca-button--tertiary"  ng-click="openLoginRegisterModal()">
-		  <i class="doca-icon doca-icon__circle-user doca-icon--extra-large" ></i>
-		</button>   
+			class="doca-button doca-button--large doca-button--tertiary"
+			ng-if="!isLogged"
+			ng-click="openLoginRegisterModal()">
+			<i class="doca-icon doca-icon__right-to-bracket doca-icon--extra-large"></i>
+		</button>
+		<button
+			class="doca-button doca-button--large doca-button--tertiary"  
+			ng-if="isLogged"
+			ng-click="openUserProfile()">
+			<i class="doca-icon doca-icon__circle-user doca-icon--extra-large" ></i>
+		</button>
 	  </div>
 	</header>
-  
-	
 
 	<div class="doca-w-1/3 doca-mx-auto doca-mt-8">
 	  <div class="doca-flex doca-items-center doca-justify-start">
