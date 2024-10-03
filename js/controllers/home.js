@@ -69,6 +69,13 @@ myApp.controller("homeController", function ($scope, PostService, $modal, $rootS
     });
   };
 
+  $scope.openUserProfileModal = function () {        
+    $modal.open({
+      templateUrl: 'view/user-profile-modal.html',
+      controller: 'userProfileModalController'
+    });
+  };
+
   $scope.createPost = function() {
     if ($rootScope.isLogged) {
       $modal.open({

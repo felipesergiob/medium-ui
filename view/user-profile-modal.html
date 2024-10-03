@@ -1,0 +1,11 @@
+<div>
+    <h1>Perfil do Usuário</h1>
+    <p>
+        Nome: {{ userProfile.name }}
+        Email: {{ userProfile.email }}
+        Data de Criação: {{ userProfile.created_at | date }}
+    </p>
+    <p>
+        {{ userProfile.message }}
+    </p>
+</div>
