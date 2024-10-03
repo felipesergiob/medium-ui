@@ -30238,6 +30238,11 @@ html {
 .doca .doca-mt-8 {
   margin-top: 2rem;
 }
+
+.doca .doca-mt-32 {
+  margin-top: 8rem;
+}
+
 .doca .doca-mt-auto {
   margin-top: auto;
 }
