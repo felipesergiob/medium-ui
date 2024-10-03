@@ -15,6 +15,7 @@ myApp.directive('loginForm', function($http, $rootScope) {
                             localStorage.setItem("token", response.data.data.token.token);
                             $rootScope.isLogged = true;
                             scope.closeModal()
+                            $rootScope.$broadcast('authenticated'); 
                         } else {
                             console.error("Resposta da API inválida");
                         }

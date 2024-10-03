@@ -84,10 +84,12 @@
 								</p>
 								<div class="doca-ml-2">
 									<button
-										class="doca-button doca-button--large doca-button--tertiary">
-										<i class="doca-icon doca-icon__hands doca-icon--large"></i>
+										class="doca-button doca-button--large doca-button--tertiary"
+										ng-click="likePost(post)">
+										<i class="doca-icon" ng-class="post.isLikedByUser ? 'doca-icon__hands doca-icon--solid' : 'doca-icon__hands'"></i>
 										<p class="doca-text--large">{{ post.total_likes }}</p>
-									</button>  		
+									</button>
+		
 									<button
 										class="doca-button doca-button--large doca-button--tertiary">
 										<i class="doca-icon doca-icon__comments doca-icon--large"></i>
