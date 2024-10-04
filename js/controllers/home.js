@@ -95,5 +95,9 @@ myApp.controller("homeController", function ($scope, PostService, $modal, $rootS
     listPosts($scope.currentPage);
   });
 
+  $rootScope.$on('userProfileUpdated', function() {
+    listPosts($scope.currentPage);
+  });
+
   listPosts($scope.currentPage);
 });

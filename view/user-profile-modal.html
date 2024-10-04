@@ -1,11 +1,69 @@
-<div>
-    <h1>Perfil do Usuário</h1>
-    <p>
-        Nome: {{ userProfile.name }}
-        Email: {{ userProfile.email }}
-        Data de Criação: {{ userProfile.created_at | date }}
-    </p>
-    <p>
-        {{ userProfile.message }}
-    </p>
+<div class="doca">
+  <div class="modal-header">
+      <h3 class="doca-text doca-text--large doca-text--medium" style="font-size: 16px;">
+          Perfil do Usuário
+      </h3>
+  </div>
+
+  <form ng-submit="updateUserProfile()" style="padding: 20px;">
+      <div class="form-group" style="margin-bottom: 15px;">
+          <label class="doca-form__label" style="font-size: 18px;">Nome</label>
+          <input
+              class="doca-form-control"
+              ng-model="userProfile.name"
+              required
+              style="width: 100%; padding: 8px; font-size: 16px; box-sizing: border-box;"
+          />
+      </div>
+
+      <div class="form-group" style="margin-bottom: 15px;">
+          <label class="doca-form__label" style="font-size: 18px;">Email</label>
+          <input
+              class="doca-form-control"
+              ng-model="userProfile.email"
+              required
+              style="width: 100%; padding: 8px; font-size: 16px; box-sizing: border-box;"
+          />
+      </div>
+
+      <div class="form-group" style="margin-bottom: 15px;">
+          <label class="doca-form__label" style="font-size: 18px;">Nova Senha</label>
+          <input
+              type="password"
+              class="doca-form-control"
+              ng-model="userProfile.newPassword"
+              style="width: 100%; padding: 8px; font-size: 16px; box-sizing: border-box;"
+          />
+      </div>
+
+      <div class="doca-flex doca-justify-between" style="margin-top: 20px;">
+          <button
+              class="doca-button doca-button--secondary"
+              type="button"
+              ng-click="openDeleteConfirmationModal()"
+              style="font-size: 16px; padding: 8px 16px; background-color: #e74c3c; color: #fff;"
+          >
+              Deletar Conta
+          </button>
+          <button
+              class="doca-button doca-button--primary"
+              type="submit"
+              style="font-size: 16px; padding: 8px 16px;"
+          >
+              Atualizar Perfil
+          </button>
+      </div>
+  </form>
+
+  <div class="doca-modal" ng-if="showDeleteConfirmationModal">
+    <div class="doca-modal__content">
+      <div class="doca-modal__body doca-mt-4" style="font-size: 16px;">
+        <p>Você tem certeza de que deseja deletar sua conta?</p>
+      </div>
+      <div class="doca-modal__footer" style="font-size: 16px;">
+        <button class="doca-button doca-button--secondary" ng-click="closeDeleteConfirmationModal()">Cancelar</button>
+        <button class="doca-button doca-button--danger" ng-click="deleteUserProfile()">Confirmar</button>
+      </div>
+    </div>
+  </div>
 </div>
