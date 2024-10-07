@@ -38,12 +38,13 @@
                   Cancelar
               </button>
               <button
-                  class="doca-button doca-button--primary"
-                  type="submit"
-                  style="font-size: 16px; padding: 8px 16px;"
-              >
-                  Confirmar
-              </button>
+                class="doca-button doca-button--primary"
+                type="submit"
+                ng-disabled="!post.title || !post.content"
+                style="font-size: 16px; padding: 8px 16px;"
+            >
+                Confirmar
+            </button>
           </div>
       </form>
   </div>

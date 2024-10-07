@@ -32,7 +32,11 @@
                 >
                     Cancelar
                 </button>
-                <button class="doca-button doca-button--primary" type="submit" style="font-size: 16px; padding: 8px 16px;">
+                <button 
+                    class="doca-button doca-button--primary" 
+                    type="submit" 
+                    ng-disabled="!credentials.email || !credentials.password" 
+                    style="font-size: 16px; padding: 8px 16px;">
                     Entrar
                 </button>
             </div>
