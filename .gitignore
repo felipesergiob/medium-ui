@@ -1,0 +1,26 @@
+# Arquivos CSS grandes (frameworks, bibliotecas)
+css/doca.css
+css/ui-boostrap.css
+
+# Manter apenas CSS customizado do projeto
+!css/ui.css
+
+# Outros arquivos comuns para ignorar
+node_modules/
+.DS_Store
+*.log
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Arquivos de build
+dist/
+build/
+*.min.js
+*.min.css
+
+# Arquivos temporários
+*.tmp
+*.temp 
